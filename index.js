@@ -22,6 +22,14 @@ addButtonEl.addEventListener("click", function() {
     clearInputFieldEl()
 })
 
+inputFieldEl.addEventListener("keydown",function(event){
+    if(event.key === "Enter"){
+        event.preventDefault();
+
+        document.getElementById("add-button").click();
+    }
+})
+
 onValue(shoppingListInDB, function(snapshot) {
     if (snapshot.exists()) {
         let itemsArray = Object.entries(snapshot.val())
